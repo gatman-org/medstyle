@@ -1,0 +1,61 @@
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="ro-RO">
+<info>
+<title>ISO-690 (numeric, Romanian) - medicinateza</title>
+<id>http://csl.mendeley.com/styles/476059871/medicinateza2025-ro</id>
+<link href="http://www.zotero.org/styles/iso690-numeric-en" rel="self"/>
+<link href="https://forums.zotero.org/discussion/20342" rel="documentation"/>
+<author><name>Laure Mellifluo</name><email>laure.melli@gmail.com</email></author>
+<author><name>Raphael Grolimund</name><email>raphael.grolimund@epfl.ch</email></author>
+<author><name>Michel Hardegger</name><email>hardegger@gmail.com</email></author>
+<contributor><name>Ecaterina Cucereavaia</name><uri/></contributor>
+<contributor><name>Tamilla Barov</name><uri/></contributor>
+<category citation-format="numeric"/>
+<category field="generic-base"/>
+<summary>Style based on ISO 690:2010(E), V1.1 (Romanian terms + medical thesis format)</summary>
+<updated>2026-05-02T00:00:00+00:00</updated>
+<rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+</info>
+<locale>
+<terms>
+<term name="no date">[fără dată]</term>
+<term name="in">În</term>
+<term name="online">online</term>
+<term name="accessed">accesat la</term>
+<term name="retrieved">Disponibil la</term>
+<term name="from">la</term>
+<term name="page-range-delimiter">-</term>
+</terms>
+</locale>
+<macro name="author"><names variable="author"><name delimiter=", " delimiter-precedes-last="never" et-al-min="4" et-al-use-first="3"/><et-al term="et-al"/></names></macro>
+<macro name="title"><text variable="title" suffix=". "/></macro>
+<macro name="container"><choose><if variable="container-title"><text variable="container-title" prefix="În: " suffix=". "/></if></choose></macro>
+<macro name="date"><choose><if variable="issued"><date variable="issued"><date-part name="year"/></date></if><else><text term="no date"/></else></choose></macro>
+<macro name="issue"><group>
+<text macro="date" suffix=", "/>
+<text variable="volume" prefix="nr. "/>
+<text variable="issue" prefix=" (" suffix=")"/>
+<text variable="page" prefix=", pp. "/>
+</group></macro>
+<macro name="identifiers"><group delimiter=". "><text variable="ISSN" prefix="ISSN "/><text variable="DOI" prefix="doi: "/></group></macro>
+<macro name="publisher-group"><group delimiter=", "><text variable="publisher-place"/><text variable="publisher"/><text macro="date"/></group></macro>
+<macro name="pages-book"><text variable="number-of-pages" suffix=" p."/></macro>
+<macro name="access-url"><choose><if variable="URL"><group><text term="retrieved" suffix=": "/><text variable="URL"/><text variable="accessed" prefix=" [accesat la " suffix="]"/></group></if></choose></macro>
+<citation collapse="citation-number" after-collapse-delimiter="; "><sort><key variable="citation-number"/></sort><layout delimiter=", " prefix="[" suffix="]"><text variable="citation-number"/></layout></citation>
+<bibliography>
+<sort><key variable="citation-number"/></sort>
+<layout>
+<text variable="citation-number" suffix=". "/>
+<choose>
+<if type="article-journal article-magazine article-newspaper" match="any">
+<text macro="author" suffix=". "/><text macro="title"/><text macro="container"/><text macro="issue" suffix=". "/><text macro="identifiers" suffix=". "/><text macro="access-url"/>
+</if>
+<else-if type="book" match="any">
+<text macro="author" suffix=". "/><text variable="title" suffix=". "/><text variable="collection-title" suffix=". "/><text variable="editor" suffix=". "/><text macro="publisher-group" suffix=", "/><text macro="pages-book" suffix=". "/><text macro="access-url"/>
+</else-if>
+<else>
+<text macro="author" suffix=". "/><text variable="title" suffix=". "/><text macro="container"/><text macro="publisher-group" suffix=". "/><text macro="issue" suffix=". "/><text macro="identifiers" suffix=". "/><text macro="access-url"/>
+</else>
+</choose>
+</layout>
+</bibliography>
+</style>
